@@ -1,0 +1,14 @@
+weather temperature
+8 2 10 13 6 13 7
+temperature wind
+11 12 5 2 2 6 9
+weather temperature
+13 8 10 11 6 11 4
+temperature humidity
+11 9 1 13 3 13 0
+temperature humidity
+3 7 8 3 0 11 8
+no yes yes yes no yes yes yes no no yes no no yes yes yes yes yes yes
+0.52632
+4 7
+2 6

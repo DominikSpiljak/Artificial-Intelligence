@@ -1,0 +1,5 @@
+0:A, 1:C
+False False True False False True
+0.50000
+3 2
+1 0

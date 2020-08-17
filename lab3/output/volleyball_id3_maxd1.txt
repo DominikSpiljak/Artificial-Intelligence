@@ -1,0 +1,5 @@
+0:weather
+yes no no yes yes no yes yes yes yes yes yes yes no no yes yes yes yes
+0.36842
+2 9
+3 5

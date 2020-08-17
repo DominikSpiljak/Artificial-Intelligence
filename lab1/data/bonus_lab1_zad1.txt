@@ -1,0 +1,86 @@
+3x3 slagalica:
+    Učitano je 181440 stanja, što je manje od svih mogućih stanja kojih je 9! = 362880.
+    Slagalicu nije moguće riješiti ako se nalazi u jednom od 181440 neriješivih stanja.
+
+
+    Dokaz:
+        Za početak uzmimo neku nasumičnu konfiguraciju konfiguraciju kao na primjer 583_21x_647 te prikažimo
+        stanje kao listu bez praznog mjesta: [5, 8, 3, 2, 1, 6, 4, 7].
+        Ideja je prebrojavati inverze u zadanoj listi, u ovom primjeru:
+
+            5 ima 4 inverza (3, 2, 1, 4 bi se trebali nalaziti s lijeve strane jer su manji od 5)
+            8 ima 6 inverza
+            3 ima 2 inverza
+            2 ima 1 inverz
+            1 nema inverza
+            6 ima 1 inverz
+            4 nema inverza
+            7 nema inverza
+            ---------------
+            =   14 inverza što je parno i znači da je slagalica riješiva
+
+        ------------------------------------------------
+
+        Zašto je to bitno?
+
+            Zato što svaki korak potez na broj inverza:
+
+            Pomicanje vertikalno
+                - poveća ga za 2:
+                    5 8 3       5 8 3
+                    2 1 x  ->   2 1 7 -> [5, 8, 3, 2, 1, 7, 6, 4] => 4 + 6 + 2 + 1 + 0 + 2 + 1 + 0 = 16 inverza
+                    6 4 7       6 4 x
+
+                -smanjuje ga za 2:
+                    5 8 3       5 8 x
+                    2 1 x  ->   2 1 3 -> [5, 8, 2, 1, 3, 6, 4, 7] => 4 + 6 + 1 + 0 + 0 + 1 + 0 + 0 = 12 inverza
+                    6 4 7       6 4 7
+
+                - ne mjenja ga:
+                    2 1 3       2 1 3
+        (2 inverza) 4 x 5  ->   4 6 5 -> [2, 1, 3, 4, 6, 5, 7, 8] => 1 + 0 + 0 + 0 + 1 + 0 + 0 + 0 = 2 inverza
+                    7 6 8       7 x 8
+
+
+            Pomicanje horizontalno
+                - ne mjenja ga:
+                    5 8 3       5 8 3
+                    2 1 x  ->   2 x 1 -> [5, 8, 3, 2, 1, 6, 4, 7] => 4 + 6 + 2 + 1 + 0 + 1 + 0 + 0 = 14 inverza
+                    6 4 7       6 4 7
+
+            Završna konfiguracija ima broj inverza 0 [0, 1, 2, 3, 4, 5, 6, 7, 8],
+            što znači bilokoja konfiguracija mora imati paran broj inverza da bi bila riješiva. QED
+
+4x4 slagalica:
+    Ima 16! = 2.092279e+13 (puno) mogućih stanja
+
+    Dokaz za ovu slagalicu je sličan, ali malo kompliciraniji jer pričamo o polju sa širinom parnog broja (4)
+
+    Dokaz:
+        Isto je da završna konfiguracija ima 0 inverza te da pomicanje horizontalno ne mjenja broj inverza.
+        Pločica se kreće pored neparnog broja drugih pločica (7 se kreće pokraj 10, 6 i 4).
+            5  8  3  9      5  8  3  9
+            2  1  x 10 ->   2  1  7 10
+            6  4  7 11      6  4  x 11
+           12 13 14 15      12 13 14 15
+
+        Dakle, broj inverzija se mijenja za 1(7 je iza 4) + 1(7 je iza 6) - 1 (7 je iza 10).
+        U 3x3 verziji kombinacije su mogle dati zbroj: 2, -2, 0,
+        ali u 4x4 varijanti kombinacije mogu dati zbroj: 3, 1, -1, -3.
+
+        Zato nam ovdje nije bitan samo broj inverza nego i red u kojem se nalazi x,
+        završna konfiguracija ima 0 inverza i x u zadnjem redu koji je 4. i on je paran.
+
+        Pomicanjem stupca također se mjenja red u kojem je x, iz neparnog u parni i obrnuto.
+
+        Što sad to znači?
+            Ako je x u neparnom retku, treba napraviti neparni broj zamjena stupaca.
+            - što znači da broj inverza mora biti neparan jer neparan broj 4x4 zbrojeva može dati zbroj koji
+              je samo neparan (3 + 3 - 3 = 3, 3 - 1 - 3 = -1 ...)
+
+            Također, ako je x u parnom retku, treba napraviti parni broj zamjena stupaca.
+            - što znači da broj inverza mora biti patan jer paran broj 4x4 zbrojeva može dati zbroj koji
+              je samo paran (3 + 3 - 3 + 1 = 4, 3 - 1 = 2 ...)
+
+        Što znači da ako je x u neparnom redu, konfiguracija mora imati neparni broj inverza, a ako je x
+        u parnom redu, slagalica mora imati parni broj inverza. QED

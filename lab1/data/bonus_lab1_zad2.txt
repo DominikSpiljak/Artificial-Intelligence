@@ -1,0 +1,70 @@
+Ideja1: Provjerimo jeli konzistenta jer je to brže i konzistentna heuristika je nužno optimistična. Ako nije, 
+       umjesto da za svako stanje računamo najbržu putanju od tog stanja do ciljnog, uzmimo sva stanja koja smo pokupili putem
+       jer je i taj put njihov najbrži. Također, možemo dodati da čim naiđemo na situaciju gdje heuristika nije optimistična, prekidamo ju.
+
+Složenosti:
+       prostorna = O(n * b^[1+C∗/ε]), vremenska = O(n * b^[1+C∗/ε])
+
+
+Korištena skripta za analizu: bonus_lab1_zad2.py
+
+Rezultati za istra_heuristic:
+       --- RESULTS ---
+       Mean time new method took less: 0.022806239128112794
+       Standard Deviation of time new method took less: 0.0003296742771601522
+       Mean number of path finding method calls for new method - path finding method calls for old method: 19.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+
+Rezultati za istra_heuristic_pessimistic:
+       --- RESULTS ---
+       Mean time new method took less: 0.02409224510192871
+       Standard Deviation of time new method took less: 0.0025871542702068035
+       Mean number of path finding method calls for new method - path finding method calls for old method: 15.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+Rezultati za ai_pass:
+       --- RESULTS ---
+       Mean time new method took less: 0.0007623434066772461
+       Standard Deviation of time new method took less: 1.7468534091317812e-05
+       Mean number of path finding method calls for new method - path finding method calls for old method: 9.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+
+Rezultati za ai_fail:
+       --- RESULTS ---
+       Mean time new method took less: 0.00010902881622314453
+       Standard Deviation of time new method took less: 0.0002550993019961462
+       Mean number of path finding method calls for new method - path finding method calls for old method: 7.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+
+Rezultati za 3x3_manhattan_heuristic:
+       --- RESULTS ---
+       Mean time new method took less: 299.0040042161942
+       Standard Deviation of time new method took less: 0.007235232992799353
+       Mean number of path finding method calls for new method - path finding method calls for old method: 181440.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+Rezultati za 3x3_euclidian_heuristic:
+       --- RESULTS ---
+       Mean time new method took less: 298.92562890052795
+       Standard Deviation of time new method took less: 0.053174009985604634
+       Mean number of path finding method calls for new method - path finding method calls for old method: 181440.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+Rezultat za 3x3_misplaced_heuristic:
+       --- RESULTS ---
+       Mean time new method took less: 298.82471051216123
+       Standard Deviation of time new method took less: 0.025417731001417584
+       Mean number of path finding method calls for new method - path finding method calls for old method: 181438.0
+       Standard Deviation of path finding method calls for new method - path finding method calls for old method: 0.0
+
+
+
+

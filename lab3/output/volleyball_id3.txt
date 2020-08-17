@@ -1,0 +1,5 @@
+0:weather, 1:humidity, 1:wind
+yes yes yes yes no yes yes yes no yes yes no yes no no yes yes yes yes
+0.57895
+4 7
+1 7
